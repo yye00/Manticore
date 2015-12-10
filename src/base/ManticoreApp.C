@@ -1,6 +1,7 @@
 #include "ManticoreApp.h"
 #include "Moose.h"
 #include "AppFactory.h"
+#include "MooseSyntax.h"
 #include "ModulesApp.h"
 
 template<>
@@ -49,6 +50,6 @@ ManticoreApp::registerObjects(Factory & factory)
 // External entry point for dynamic syntax association
 extern "C" void ManticoreApp__associateSyntax(Syntax & syntax, ActionFactory & action_factory) { ManticoreApp::associateSyntax(syntax, action_factory); }
 void
-ManticoreApp::associateSyntax(Syntax & syntax, ActionFactory & action_factory)
+ManticoreApp::associateSyntax(Syntax & /*syntax*/, ActionFactory & /*action_factory*/)
 {
 }
