@@ -160,3 +160,4 @@ peacock_*.e
 
 # Revision files
 include/*Revision.h
+include/base/ManticoreRevision.h
