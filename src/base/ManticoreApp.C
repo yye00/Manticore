@@ -3,6 +3,11 @@
 #include "AppFactory.h"
 #include "ModulesApp.h"
 
+
+// Kernels
+#include "KlinkenbergPressure.h"
+#include "nonlinear.h"
+
 template<>
 InputParameters validParams<ManticoreApp>()
 {
@@ -44,6 +49,8 @@ extern "C" void ManticoreApp__registerObjects(Factory & factory) { ManticoreApp:
 void
 ManticoreApp::registerObjects(Factory & factory)
 {
+    registerKernel(KlinkenbergPressure);
+    registerKernel(NonLinear);
 }
 
 // External entry point for dynamic syntax association
