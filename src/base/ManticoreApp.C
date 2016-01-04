@@ -12,6 +12,9 @@
 #include "ForchheimerMass.h"
 #include "CompressibleKlinkenberg.h"
 
+// UserObjects
+#include "ShapeFactor.h"
+
 template<>
 InputParameters validParams<ManticoreApp>()
 {
@@ -53,9 +56,14 @@ extern "C" void ManticoreApp__registerObjects(Factory & factory) { ManticoreApp:
 void
 ManticoreApp::registerObjects(Factory & factory)
 {
-    registerKernel(KlinkenbergPressure);
-    //registerKernel(ForchheimerMomentum);
-    //registerKernel(ForchheimerMass);
+
+  // User Objects
+  registerUserObject(ShapeFactor);
+
+  // Kernels
+  registerKernel(KlinkenbergPressure);
+  registerKernel(ForchheimerMomentum);
+  registerKernel(ForchheimerMass);
 }
 
 // External entry point for dynamic syntax association

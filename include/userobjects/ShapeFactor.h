@@ -3,8 +3,6 @@
 
 #include "GeneralUserObject.h"
 
-#include "libmesh/elem.h"
-
 
 class ShapeFactor;
 
@@ -27,7 +25,7 @@ public:
    * The actual shape factor
    * @param elem the _current_elem element from the geometry
    */
-  Real Factor(libMesh::Elem elem) const = 0;
+  Real Factor(Elem * elem) const;
 
 };
 

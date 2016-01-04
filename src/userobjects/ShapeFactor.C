@@ -27,18 +27,19 @@ ShapeFactor::finalize()
 {}
 
 Real
-ShapeFactor::Factor(libMesh::Elem elem) const
+ShapeFactor::Factor(Elem * elem) const
 {
   // Get the dimension
-  unsigned dim = elem::dim();
+  unsigned dim = elem->dim();
 
   // Get the volume
-  Real const vol = elem::volume();
+  Real const vol = elem->volume();
 
   // Get the surface area
   Real surface_area=0;
   for (unsigned int s=0; s<elem->n_sides(); s++)
     surface_area += elem->build_side(s)->volume();
-  
+
+  return surface_area*vol*dim;  
 
 }
