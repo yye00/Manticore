@@ -32,18 +32,17 @@ protected:
    */
   virtual Real computeQpJacobian();
 
-  /// fluid weight (gravity*density) as a vector pointing downwards, eg '0 0 -10000'
+  // fluid weight (gravity*density) as a vector pointing downwards, eg '0 0 -10000'
   RealVectorValue _fluid_weight;
 
-  /// fluid dynamic viscosity
+  // fluid dynamic viscosity
   Real _fluid_viscosity;
 
-  /// Klinkenberg factor b
+  // Klinkenberg factor b
   Real _klinkenberg_factor;
 
-  /// Material permeability
+  // Material permeability
   const MaterialProperty<RealTensorValue> &_permeability;
-
 };
 
 #endif /* KLINKENBERG_H */

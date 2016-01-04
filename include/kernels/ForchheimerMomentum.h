@@ -1,76 +1,65 @@
-#ifndef FORCHHEIMER_H
-#define FORCHHEIMER_H
+
+
+#ifndef FORCHHEIMERMOMENTUM_H
+#define FORCHHEIMERMOMENTUM_H
 
 #include "Kernel.h"
 
-class ForchheimerPressure;
-class ForchheimerVelocity;
+#include "RichardsDensity.h"
+
+// Forward Declarations
+class ForchheimerMomentum;
 
 template<>
-InputParameters validParams<ForchheimerPressure>();
+InputParameters validParams<ForchheimerMomentum>();
 
-template<>
-InputParameters validParams<ForchheimerVelocity>();
-
-
-class ForchheimerPressure : public Kernel
+/**
+ * This class computes the mass equation residual and Jacobian
+ * contributions for the compressible forchheimer equation
+ * equation.
+ */
+class ForchheimerMomentum : public Kernel
 {
 public:
-  ForchheimerPressure(const InputParameters & parameters);
-  virtual ~ForchheimerPressure();
+  ForchheimerMomentum(const InputParameters & parameters);
+
+  virtual ~ForchheimerMomentum(){}
 
 protected:
-  /**
-   * Kernels _must_ override computeQpResidual()
-   */
   virtual Real computeQpResidual();
-
-  /**
-   * This is optional (but recommended!)
-   */
   virtual Real computeQpJacobian();
+  virtual Real computeQpOffDiagJacobian(unsigned jvar);
 
-  /// fluid weight (gravity*density) as a vector pointing downwards, eg '0 0 -10000'
-  RealVectorValue _fluid_weight;
+  // Coupled variables
+  VariableValue& _u_vel;
+  VariableValue& _v_vel;
+  VariableValue& _w_vel;
+  VariableValue& _p;
 
-  /// fluid dynamic viscosity
-  Real _fluid_viscosity;
+  // Variable numberings
+  unsigned _u_vel_var_number;
+  unsigned _v_vel_var_number;
+  unsigned _w_vel_var_number;
+  unsigned _p_var_number;
 
-  /// Klinkenberg factor b
-  Real _klinkenberg_factor;
+  // We will re-use the Richard's desntiy from the Richard's module
+  const RichardsDensity & _density;
 
-  /// Material permeability
+  // Forchheimer factor b
+  Real _forchheimer_factor;
+
+  // fluid dynamic viscosity
+  Real _fluid_viscosity;  
+
+  // Material permeability
   const MaterialProperty<RealTensorValue> &_permeability;
+
+  // Gravity magnitude
+  Real _gravity;
+
+  // The component we are interested in
+  unsigned _component;
 };
 
-class ForchheimerVelocity : public Kernel
-{
-public:
-  ForchheimerVelocity(const InputParameters & parameters);
-  virtual ~ForchheimerVelocity();
 
-protected:
-  /**
-   * Kernels _must_ override computeQpResidual()
-   */
-  virtual Real computeQpResidual();
-
-  /**
-   * This is optional (but recommended!)
-   */
-  virtual Real computeQpJacobian();
-
-  /// fluid weight (gravity*density) as a vector pointing downwards, eg '0 0 -10000'
-  RealVectorValue _fluid_weight;
-
-  /// fluid dynamic viscosity
-  Real _fluid_viscosity;
-
-  /// Klinkenberg factor b
-  Real _klinkenberg_factor;
-
-  /// Material permeability
-  const MaterialProperty<RealTensorValue> &_permeability;
-};
-
-#endif /* FORCHHEIMER_H */
+#endif // FORCHHEIMERMOMENTUM_H

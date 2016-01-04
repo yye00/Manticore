@@ -8,7 +8,7 @@ InputParameters validParams<KlinkenbergPressure>()
   InputParameters params = validParams<Kernel>();
   params.addRequiredParam<RealVectorValue>("fluid_weight", "Fluid weight (gravity*density) as a vector pointing downwards (usually measured in kg.m^-2.s^-2 = Pa/m).  Eg '0 0 -10000'");
   params.addRequiredParam<Real>("fluid_viscosity", "Fluid dynamic viscosity (usually measured in Pa.s)");
-  params.addRequiredParam<Real>("klinkenberg_factor", "Klinkenberg factor, i.e. factor b in the equation K_g=K_inf*(1+b/pressure)");  
+  params.addRequiredParam<Real>("klinkenberg_factor", "Klinkenberg factor, i.e. factor b in the equation K_g=K_inf*(1+b/pressure)");
   params.addClassDescription("Klinkenberg Pressure.  nabla_i (k_ij/mu (nabla_j P - w_j)), where k_ij is the permeability tensor, mu is the fluid viscosity, P is the fluid pressure, and w_j is the fluid weight");
   return params;
 }

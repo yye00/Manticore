@@ -1,22 +1,10 @@
-/****************************************************************/
-/*               DO NOT MODIFY THIS HEADER                      */
-/* MOOSE - Multiphysics Object Oriented Simulation Environment  */
-/*                                                              */
-/*           (c) 2010 Battelle Energy Alliance, LLC             */
-/*                   ALL RIGHTS RESERVED                        */
-/*                                                              */
-/*          Prepared by Battelle Energy Alliance, LLC           */
-/*            Under Contract No. DE-AC07-05ID14517              */
-/*            With the U. S. Department of Energy               */
-/*                                                              */
-/*            See COPYRIGHT for full restrictions               */
-/****************************************************************/
 
 #ifndef COMPRESSIBLEOUTFLOW_H
 #define COMPRESSIBLEOUTFLOW_H
 
 #include "IntegratedBC.h"
 
+#include "RichardsDensity.h"
 
 class CompressibleOutflow;
 
@@ -42,12 +30,21 @@ public:
   CompressibleOutflow(const InputParameters & parameters);
 
 protected:
-  /// This is called to integrate the residual across the boundary
+  // This is called to integrate the residual across the boundary
   virtual Real computeQpResidual();
 
-  /// Optional (but recommended!) to compute the derivative of the
-  /// residual with respect to _this_ variable
+  // Optional (but recommended!) to compute the derivative of the
+  // residual with respect to _this_ variable
   virtual Real computeQpJacobian();
+
+  // Coupled variables
+  VariableValue& _u_vel;
+  VariableValue& _v_vel;
+  VariableValue& _w_vel;
+  VariableValue& _p;
+
+  // We will re-use the Richard's desntiy from the Richard's module
+  const RichardsDensity & _density;  
 };
 
 

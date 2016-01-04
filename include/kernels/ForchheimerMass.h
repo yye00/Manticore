@@ -5,6 +5,9 @@
 
 #include "Kernel.h"
 
+#include "RichardsDensity.h"
+
+
 // Forward Declarations
 class ForchheimerMass;
 
@@ -36,6 +39,12 @@ protected:
 
   // We will re-use the Richard's desntiy from the Richard's module
   const RichardsDensity & _density;
+
+  // Variable numberings
+  unsigned _u_vel_var_number;
+  unsigned _v_vel_var_number;
+  unsigned _w_vel_var_number;
+  unsigned _p_var_number;
 };
 
 

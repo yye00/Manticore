@@ -1,12 +1,16 @@
 #include "ManticoreApp.h"
 #include "Moose.h"
+#include "Factory.h"
 #include "AppFactory.h"
 #include "ModulesApp.h"
+#include "MooseSyntax.h"
 
 
 // Kernels
 #include "KlinkenbergPressure.h"
-#include "nonlinear.h"
+#include "ForchheimerMomentum.h"
+#include "ForchheimerMass.h"
+#include "CompressibleKlinkenberg.h"
 
 template<>
 InputParameters validParams<ManticoreApp>()
@@ -50,7 +54,8 @@ void
 ManticoreApp::registerObjects(Factory & factory)
 {
     registerKernel(KlinkenbergPressure);
-    registerKernel(NonLinear);
+    //registerKernel(ForchheimerMomentum);
+    //registerKernel(ForchheimerMass);
 }
 
 // External entry point for dynamic syntax association
