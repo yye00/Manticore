@@ -25,7 +25,7 @@ public:
    * The actual shape factor
    * @param elem the _current_elem element from the geometry
    */
-  Real Factor(Elem * elem) const;
+  Real Factor(const Elem * elem) const;
 
 };
 

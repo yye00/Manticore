@@ -27,7 +27,7 @@ ShapeFactor::finalize()
 {}
 
 Real
-ShapeFactor::Factor(Elem * elem) const
+ShapeFactor::Factor(const Elem * elem) const
 {
   // Get the dimension
   unsigned dim = elem->dim();
@@ -40,6 +40,5 @@ ShapeFactor::Factor(Elem * elem) const
   for (unsigned int s=0; s<elem->n_sides(); s++)
     surface_area += elem->build_side(s)->volume();
 
-  return surface_area*vol*dim;  
-
+  return 5.0*surface_area/vol/std::pow(vol,1/dim);
 }

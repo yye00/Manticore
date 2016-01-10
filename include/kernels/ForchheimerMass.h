@@ -7,7 +7,6 @@
 
 #include "RichardsDensity.h"
 
-
 // Forward Declarations
 class ForchheimerMass;
 
@@ -30,6 +29,12 @@ protected:
   virtual Real computeQpResidual();
   virtual Real computeQpJacobian();
   virtual Real computeQpOffDiagJacobian(unsigned jvar);
+
+  // Coupled gradients
+  VariableGradient& _grad_u_vel;
+  VariableGradient& _grad_v_vel;
+  VariableGradient& _grad_w_vel;
+  VariableGradient& _grad_p;
 
   // Coupled variables
   VariableValue& _u_vel;

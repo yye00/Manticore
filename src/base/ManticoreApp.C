@@ -64,6 +64,7 @@ ManticoreApp::registerObjects(Factory & factory)
   registerKernel(KlinkenbergPressure);
   registerKernel(ForchheimerMomentum);
   registerKernel(ForchheimerMass);
+  registerKernel(CompressibleKlinkenberg);
 }
 
 // External entry point for dynamic syntax association

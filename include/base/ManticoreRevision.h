@@ -3,6 +3,6 @@
 #ifndef MANTICORE_REVISION_H
 #define MANTICORE_REVISION_H
 
-#define MANTICORE_REVISION "git commit a5f19ac on 2015-12-31"
+#define MANTICORE_REVISION "git commit 120c80b on 2016-01-04"
 
 #endif // MANTICORE_REVISION_H

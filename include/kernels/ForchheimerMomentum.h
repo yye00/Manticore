@@ -30,6 +30,9 @@ protected:
   virtual Real computeQpJacobian();
   virtual Real computeQpOffDiagJacobian(unsigned jvar);
 
+  // Coupled gradients
+  VariableGradient& _grad_p;
+
   // Coupled variables
   VariableValue& _u_vel;
   VariableValue& _v_vel;
@@ -55,7 +58,7 @@ protected:
   const MaterialProperty<RealTensorValue> &_permeability;
 
   // Gravity magnitude
-  Real _gravity;
+  RealVectorValue _gravity_vector;
 
   // The component we are interested in
   unsigned _component;
