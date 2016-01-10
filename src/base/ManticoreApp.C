@@ -2,6 +2,7 @@
 #include "Moose.h"
 #include "Factory.h"
 #include "AppFactory.h"
+#include "MooseSyntax.h"
 #include "ModulesApp.h"
 #include "MooseSyntax.h"
 
@@ -70,6 +71,6 @@ ManticoreApp::registerObjects(Factory & factory)
 // External entry point for dynamic syntax association
 extern "C" void ManticoreApp__associateSyntax(Syntax & syntax, ActionFactory & action_factory) { ManticoreApp::associateSyntax(syntax, action_factory); }
 void
-ManticoreApp::associateSyntax(Syntax & syntax, ActionFactory & action_factory)
+ManticoreApp::associateSyntax(Syntax & /*syntax*/, ActionFactory & /*action_factory*/)
 {
 }
