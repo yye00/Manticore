@@ -1,0 +1,27 @@
+## /opt/Trelis-15.2/bin/trelis
+## Trelis Version 15.2
+## Trelis Build 41e5a7e
+## Revised Wed Nov 11 09:00:06 2015 -0700
+## Running 01/10/2016 06:52:51 PM
+## Command Options:
+undo on
+create cylinder height 5 radius 10
+delete volume 1
+create cylinder height 100 radius 0.05
+create cylinder height 0.05 major radius 10 minor radius 5
+create cylinder height 0.05 major radius 10 minor radius 5
+create cylinder height 0.05 major radius 10 minor radius 5
+delete volume 2 3 4 5
+create cylinder height 100 radius 0.05
+delete volume 6
+create cylinder height 5 radius 5
+clear usermodified
+list volume all
+list volume
+list volume all
+create cylinder height 100 radius 0.05
+create cylinder height 1 radius 0.5
+list volume all
+list volume ids
+volume 7 name "yaakoub"
+#Volume “”#Volume {Id(“volume”)} Name “George”

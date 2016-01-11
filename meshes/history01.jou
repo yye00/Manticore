@@ -1,0 +1,4 @@
+#!python
+cubit.cmd('set node constraint on')
+cubit.cmd('create Cylinder height 1 radius 5 ')
+cubit.cmd('create Cylinder height 1 radius 50 ')
