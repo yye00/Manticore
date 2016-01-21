@@ -12,6 +12,7 @@
 #include "ForchheimerMomentum.h"
 #include "ForchheimerMass.h"
 #include "CompressibleKlinkenberg.h"
+#include "MatrixFractureTransfer.h"
 
 // UserObjects
 #include "ShapeFactor.h"
@@ -66,6 +67,7 @@ ManticoreApp::registerObjects(Factory & factory)
   registerKernel(ForchheimerMomentum);
   registerKernel(ForchheimerMass);
   registerKernel(CompressibleKlinkenberg);
+  registerKernel(MatrixFractureTransfer);
 }
 
 // External entry point for dynamic syntax association

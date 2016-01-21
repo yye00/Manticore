@@ -54,8 +54,8 @@ Real MatrixFractureTransfer::computeQpJacobian()
   // We use the geometric mean
   Real perm = std::pow(_permeability[_qp](0,0)*_permeability[_qp](1,1)*_permeability[_qp](2,2),1/3.0);
 
-  return  sigma*perm/_fluid_viscosity*_phi[_j][_qp]*_density.ddensity(_p_primary[_qp])*(_p_primary[_qp]-_p_secondary[_qp])
-         + sigma*perm/_fluid_viscosity*_density.density(_p_primary[_qp])*(_phi[_j][_qp]-_p_secondary[_qp]);
+  return  sigma*perm/_fluid_viscosity*_phi[_j][_qp]*_density.ddensity(_p_primary[_qp])*(_p_primary[_qp]-_p_secondary[_qp])*_test[_i][_qp]
+         + sigma*perm/_fluid_viscosity*_density.density(_p_primary[_qp])*_phi[_j][_qp]*_test[_i][_qp];
 }
 
 

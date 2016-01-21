@@ -40,5 +40,5 @@ ShapeFactor::Factor(const Elem * elem) const
   for (unsigned int s=0; s<elem->n_sides(); s++)
     surface_area += elem->build_side(s)->volume();
 
-  return 5.0*surface_area/vol/std::pow(vol,1/dim);
+  return 5.0*surface_area/vol/std::pow(vol,1.0/dim);
 }
