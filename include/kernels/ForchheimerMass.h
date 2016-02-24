@@ -31,16 +31,16 @@ protected:
   virtual Real computeQpOffDiagJacobian(unsigned jvar);
 
   // Coupled gradients
-  VariableGradient& _grad_u_vel;
-  VariableGradient& _grad_v_vel;
-  VariableGradient& _grad_w_vel;
-  VariableGradient& _grad_p;
+  const VariableGradient & _grad_u_vel;
+  const VariableGradient & _grad_v_vel;
+  const VariableGradient & _grad_w_vel;
+  const VariableGradient & _grad_p;
 
   // Coupled variables
-  VariableValue& _u_vel;
-  VariableValue& _v_vel;
-  VariableValue& _w_vel;
-  VariableValue& _p;
+  const VariableValue & _u_vel;
+  const VariableValue & _v_vel;
+  const VariableValue & _w_vel;
+  const VariableValue & _p;
 
   // We will re-use the Richard's desntiy from the Richard's module
   const RichardsDensity & _density;
