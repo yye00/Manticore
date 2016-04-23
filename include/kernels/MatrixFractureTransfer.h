@@ -31,8 +31,8 @@ protected:
   virtual Real computeQpOffDiagJacobian(unsigned jvar);
 
   // Coupled variables
-  VariableValue& _p_primary;
-  VariableValue& _p_secondary;
+  const VariableValue & _p_primary;
+  const VariableValue & _p_secondary;
 
   // The shape factor
   const ShapeFactor & _shape_factor;

@@ -31,13 +31,13 @@ protected:
   virtual Real computeQpOffDiagJacobian(unsigned jvar);
 
   // Coupled gradients
-  VariableGradient& _grad_p;
+  const VariableGradient & _grad_p;
 
   // Coupled variables
-  VariableValue& _u_vel;
-  VariableValue& _v_vel;
-  VariableValue& _w_vel;
-  VariableValue& _p;
+  const VariableValue & _u_vel;
+  const VariableValue & _v_vel;
+  const VariableValue & _w_vel;
+  const VariableValue & _p;
 
   // Variable numberings
   unsigned _u_vel_var_number;

@@ -38,10 +38,10 @@ protected:
   virtual Real computeQpJacobian();
 
   // Coupled variables
-  VariableValue& _u_vel;
-  VariableValue& _v_vel;
-  VariableValue& _w_vel;
-  VariableValue& _p;
+  const VariableValue & _u_vel;
+  const VariableValue & _v_vel;
+  const VariableValue & _w_vel;
+  const VariableValue & _p;
 
   // We will re-use the Richard's desntiy from the Richard's module
   const RichardsDensity & _density;  
