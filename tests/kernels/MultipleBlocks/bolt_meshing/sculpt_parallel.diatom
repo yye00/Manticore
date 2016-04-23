@@ -1,0 +1,17 @@
+  diatoms
+    package 'Volume_1'
+      material 1
+      iterations 3
+      insert stl
+        FILE = 'sculpt_parallel_Volume_1.stl'
+      endinsert
+    endp
+    package 'Volume_2'
+      material 2
+      iterations 3
+      insert stl
+        FILE = 'sculpt_parallel_Volume_2.stl'
+      endinsert
+    endp
+  enddia
+

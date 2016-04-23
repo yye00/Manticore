@@ -1,0 +1,1 @@
+/opt/Bolt-1.0/bin/sculpt --cubit_launch -j 4 -x 22 -y 22 -z 22 -t -13.118753 -u -13.118753 -v -13.118753 -q 13.118753 -r 13.118753 -s 13.118753 -S 1 -LI 2 -OI 5 -OT 0.600000 -CI 100 -CT 0.200000 -SS 2 -e sculpt_parallel.diatom_result -d sculpt_parallel.diatom 

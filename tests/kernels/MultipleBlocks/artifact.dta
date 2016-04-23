@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<artifact type="SNL Mesh"
+          xmlns="http://www-irn.sandia.gov/schema/dart/3.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www-irn.sandia.gov/schema/dart/3.0 http://www-irn.sandia.gov/schema/dart/3.0/DARTMetadata.xsd">
+  <mesh>
+    <metadata-source application="CUBIT" application-version="15.2" last-modified-date="Wed Nov 11 09:00:06 2015 -0700"/>
+    <file format="Exodus" href="/home/yye00/Work/Moose/Manticore/tests/kernels/MultipleBlocks/one_fracture.e"/>
+    <block-description id="1" name="fracture" />
+    <block-description id="2" name="matrix" />
+    <sideset-description id="1" name="inner" />
+    <sideset-description id="2" name="outer" />
+  </mesh>
+</artifact>
